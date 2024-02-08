@@ -6,6 +6,6 @@ COPY package*.json ./
 
 RUN npm ci --omit=dev
 
-COPY ./src ./src
+COPY ./src/app ./src/app
 
 CMD npm start
