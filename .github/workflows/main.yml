@@ -1,0 +1,15 @@
+name: Docker Image CI for GHCR
+
+on: push
+
+jobs:
+  build_and_publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Login to GitHub Container Registry
+        run: echo "${{ secrets.ACCESS_TOKEN }}" | docker login ghcr.io -u rohit2905 --password-stdin
+      - name: Build and push the image
+        run: |
+          docker build -t ghcr.io/rohit2905/arithmetic-service:latest .
+          docker push ghcr.io/rohit2905/arithmetic-service:latest
