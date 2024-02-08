@@ -8,8 +8,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Login to GitHub Container Registry
-        run: echo "${{ secrets.ACCESS_TOKEN }}" | docker login ghcr.io -u rokala --password-stdin
+        run: echo "${{ secrets.ACCESS_TOKEN }}" | docker login ghcr.io -u rohit2905 --password-stdin
       - name: Build and push the image
         run: |
-          docker build -t ghcr.io/rokala/arithmetic-service:latest .
-          docker push ghcr.io/rokala/arithmetic-service:latest
+          docker build -t ghcr.io/rohit2905/arithmetic-service:latest .
+          docker push ghcr.io/rohit2905/arithmetic-service:latest
